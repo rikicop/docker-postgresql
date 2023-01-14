@@ -123,10 +123,22 @@ netstat -ano|findstr "PID :9229"
 
 taskkill /PID 9229 /F
 
-## Run Postgres
+## Run Postgres CLI
 
 docker exec -it server-postgy-1 psql -U ricardo -W perntodo
+
+psw: 1234
 
 ## Desactivar pgAdmin
 
 Primero ve a cotainer desde docker desktop, ve a la imagen de pgAdmin y detenla.
+
+## Create the .gitignore file
+
+## Initialize the git repository
+
+## **FRONTEND**
+
+## With Next.js and Tailwind CSS
+
+npx create-next-app@latest frontend --typescript --eslint

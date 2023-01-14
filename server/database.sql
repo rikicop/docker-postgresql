@@ -12,3 +12,6 @@ INSERT INTO todo (title, body) VALUES
 ('Do laundry', 'Wash, dry, and fold all dirty clothes and linens.');
 
 SELECT * FROM todo;
+
+/* CLEAN TERMINAL */
+perntodo=# \! clear
