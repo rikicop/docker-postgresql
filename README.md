@@ -142,3 +142,33 @@ Primero ve a cotainer desde docker desktop, ve a la imagen de pgAdmin y detenla.
 ## With Next.js and Tailwind CSS
 
 npx create-next-app@latest frontend --typescript --eslint
+
+## Send post request to the server
+
+```js
+function InputTodo() {
+    const [description, setDescription] = useState("")
+    const onSubmitForm = async (e) => {
+        e.preventDefault()
+        try {
+            const body = { body: description }
+            const response = await fetch("http://localhost:3000/api/todos", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            })
+            window.location = "/"
+            console.log("response:", response)
+        } catch (err) {
+            console.error(err.message)
+        }
+    }
+
+    <form className="flex justify-center mt-5" onSubmit={onSubmitForm}>
+                <input type="text"
+                       className="border-black border-2"
+                       value={description}
+                       onChange={e => setDescription(e.target.value)}
+                />
+                ........
+```

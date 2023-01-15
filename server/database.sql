@@ -1,3 +1,7 @@
+
+/* CLEAN TERMINAL */
+perntodo=# \! clear
+
 CREATE TABLE todo(
     todo_id SERIAL PRIMARY KEY,
     title VARCHAR(255),
@@ -13,5 +17,10 @@ INSERT INTO todo (title, body) VALUES
 
 SELECT * FROM todo;
 
-/* CLEAN TERMINAL */
-perntodo=# \! clear
+/* Query to delete where body is equal to none  */
+DELETE FROM todo WHERE body = '';
+/* Donde es Nulo */
+DELETE FROM todo WHERE title IS NULL;
+
+/* Query to update the title of the todo with id 1 to 'Clean the kitchen' */
+UPDATE todo SET title = 'Examp' WHERE todo_id = 8;
