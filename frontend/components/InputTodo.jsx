@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 
-
 function InputTodo() {
     const [description, setDescription] = useState("")
     const onSubmitForm = async (e) => {
         e.preventDefault()
         try {
-            const body = { body: description }
+            const body = { title: description }
             const response = await fetch("http://localhost:3000/api/todos", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
