@@ -2,8 +2,9 @@
 
 ## Stop Docker Containers
 
-````
-docker compose down```
+```bash
+docker compose down
+```
 
 ## Start Docker Desktop First
 
@@ -15,7 +16,7 @@ docker compose down```
 
 ```bash
 docker exec -it server-postgy-1 psql -U ricardo -W perntodo
-````
+```
 
 password: 1234
 
