@@ -10,7 +10,9 @@ docker compose down
 
 ## cd server
 
-## docker compose up
+```bash
+docker compose up
+```
 
 ## Start postgres cli with docker
 
