@@ -24,3 +24,11 @@ DELETE FROM todo WHERE title IS NULL;
 
 /* Query to update the title of the todo with id 1 to 'Clean the kitchen' */
 UPDATE todo SET title = 'Examp' WHERE todo_id = 8;
+
+
+
+ stu_id | stu_name | grade | enrollment_date 
+--------+----------+-------+-----------------
+      1 | Ramiro   |     2 | 2023-01-17
+      2 | Valeria  |     2 | 2023-01-17
+      3 | Benjamin |     2 | 2023-01-17

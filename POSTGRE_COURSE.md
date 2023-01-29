@@ -84,3 +84,13 @@ SELECT * FROM students;
 ```
 
 # Create a table student_sheet , this shows a realtion between student and the score
+
+# Create a backup from students table
+
+```sql
+COPY students TO '/tmp/students.csv' DELIMITER ',' CSV HEADER;
+```
+
+```
+ docker cp server-postgy-1:/tmp/students.csv C:\Users\Ricardo\Portfolio\docker-postgresql
+```
