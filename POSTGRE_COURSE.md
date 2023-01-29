@@ -56,3 +56,31 @@ RENAME COLUMN student_id TO stu_id;
 
 
 ```
+
+# Change stu_id to bigserial
+
+```sql
+ALTER TABLE students ALTER COLUMN stu_id TYPE bigserial USING stu_id::bigserial;
+
+```
+
+# To allow null values
+
+```sql
+ALTER TABLE <table_name> ALTER COLUMN <column_name> DROP NOT NULL;
+```
+
+# Insert in to table
+
+```sql
+INSERT INTO students (stu_name, grade, enrollment_date)
+VALUES ('Ramiro', 2, '2023-1-17');
+```
+
+# Select
+
+```sql
+SELECT * FROM students;
+```
+
+# Create a table student_sheet , this shows a realtion between student and the score
