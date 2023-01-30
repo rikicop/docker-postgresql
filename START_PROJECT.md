@@ -18,6 +18,10 @@ docker compose up
 
 ```bash
 docker exec -it server-postgy-1 psql -U ricardo -W perntodo
+
+or
+
+docker exec -it server-postgy-1 psql -U ricardo -W musical_ethnography
 ```
 
 password: 1234

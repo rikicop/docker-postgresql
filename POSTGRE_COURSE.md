@@ -83,7 +83,7 @@ VALUES ('Ramiro', 2, '2023-1-17');
 SELECT * FROM students;
 ```
 
-# Create a table student_sheet , this shows a realtion between student and the score
+# Create a tables sheet, student_sheet , this shows a realtion between student and the score
 
 # Create a backup from students table
 
@@ -94,3 +94,29 @@ COPY students TO '/tmp/students.csv' DELIMITER ',' CSV HEADER;
 ```
  docker cp server-postgy-1:/tmp/students.csv C:\Users\Ricardo\Portfolio\docker-postgresql
 ```
+
+## Generate 1000 records with Mockaroo - video 1:03:25 - mockaroo.com
+
+## Insert several records from a .sql FILE like ex: student.sql
+
+```sql
+INSERT INTO students (stu_name, grade, enrollment_date) VALUES ('Martin Rosero', 2, '2023-1-17');
+INSERT INTO students (stu_name, grade, enrollment_date) VALUES ('Lucía Albarracín', 2, '2023-1-17');
+```
+
+```bash
+
+cat student.sql | docker exec -i server-postgy-1 psql -U ricardo -W musical_ethnography
+```
+
+# Explicación
+
+El comando "cat" lee el contenido del archivo "student.sql" y lo envía a la entrada estándar. La entrada estándar se redirige a docker exec -i para enviar los comandos SQL al contenedor de Docker. Luego, los comandos SQL se ejecutan en la base de datos "musical_ethnography" con la conexión del usuario "ricardo".
+Ricardo Otálora
+que hace -i
+
+El parámetro -i en el comando docker exec indica que se abre una sesión interactiva con el contenedor. Esto permite que los datos enviados a la entrada estándar del contenedor sean utilizados por el proceso que se está ejecutando dentro del contenedor.
+
+En este caso, la combinación de cat student.sql | docker exec -i server-postgy-1 psql -U ricardo -W musical_ethnography envía el contenido del archivo "student.sql" a la entrada estándar del contenedor, y el contenedor usa ese contenido para ejecutar los comandos SQL en la base de datos "musical_ethnography" con la conexión del usuario "ricardo".
+
+## Tabla pieza y tabla
