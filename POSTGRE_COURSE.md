@@ -92,7 +92,7 @@ COPY students TO '/tmp/students.csv' DELIMITER ',' CSV HEADER;
 ```
 
 ```
- docker cp server-postgy-1:/tmp/students.csv C:\Users\Ricardo\Portfolio\docker-postgresql
+ docker cp server-postgy-1:/tmp/students.csv C:\Users\Ricardo\Portfolio\docker-postgresql\server
 ```
 
 ## Generate 1000 records with Mockaroo - video 1:03:25 - mockaroo.com
