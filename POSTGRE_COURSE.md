@@ -34,6 +34,14 @@ CREATE TABLE students (
 );
 ```
 
+```sql
+CREATE TABLE sheets (
+  student_id serial PRIMARY KEY,
+  stu_name varchar(100) NOT NULL,
+  grade integer NOT NULL,
+);
+```
+
 # CHECK the columns created
 
 ```sql
@@ -119,4 +127,29 @@ El parámetro -i en el comando docker exec indica que se abre una sesión intera
 
 En este caso, la combinación de cat student.sql | docker exec -i server-postgy-1 psql -U ricardo -W musical_ethnography envía el contenido del archivo "student.sql" a la entrada estándar del contenedor, y el contenedor usa ese contenido para ejecutar los comandos SQL en la base de datos "musical_ethnography" con la conexión del usuario "ricardo".
 
-## Tabla pieza y tabla
+## Tabla scores , otros ejemplos con SELECT ....
+
+```sql
+SELECT work_title FROM scores;
+```
+
+      work_title
+
+---
+
+Rondo Alla Turca
+Air on the G String
+Fur Elise
+Nocturne in Eb Major
+Summertime
+Giant Steps
+(6 rows)
+
+```sql
+SELECT  FROM scores;
+```
+
+--
+(6 rows)
+
+# ORDER BY - 1:15:20
