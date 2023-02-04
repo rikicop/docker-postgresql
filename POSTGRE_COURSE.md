@@ -152,4 +152,88 @@ SELECT  FROM scores;
 --
 (6 rows)
 
-# ORDER BY - 1:15:20
+# ORDER BY - 1:16:20
+
+```sql
+SELECT * FROM scores ORDER BY composer;
+
+SELECT * FROM scores ORDER BY composer ASC;
+
+SELECT * FROM scores ORDER BY composer DESC;
+```
+
+# DISTINCT
+
+```sql
+SELECT DISTINCT composer from scores ORDER BY composer ASC;
+```
+
+# WHERE AND - 1:22:00
+
+```sql
+SELECT work_title from scores WHERE score_genre='Jazz' ORDER BY composer ASC;
+```
+
+```sql
+SELECT work_title from scores WHERE score_genre='Classical' AND composer='Beethoven' ORDER BY composer ASC;
+```
+
+### OR
+
+```sql
+SELECT work_title from scores WHERE score_genre='Classical' AND (composer='Beethoven' OR composer='Bach') ORDER BY composer ASC;
+```
+
+```sql
+SELECT work_title from scores WHERE score_genre='Classical' AND
+(composer='Beethoven' OR composer='Bach') AND score_grade=2  ORDER BY composer ASC;
+```
+
+# Comparation Operators - 1:25:30
+
+# LIMIT - OFFSET - FETCH - 1:29:36
+
+```sql
+SELECT * FROM scores LIMIT 2;
+```
+
+# OFFSET - Ej: The 5 after
+
+```sql
+SELECT * FROM scores OFFSET 3 LIMIT 2;
+```
+
+# FETCH es como LIMIT
+
+```sql
+SELECT * FROM scores OFFSET 3 FETCH FIRST 5 ROW ONLY;
+```
+
+# IN - 1:32:40 - instead of so many OR...
+
+```sql
+SELECT * FROM scores WHERE composer IN ('Beethoven','Bach');
+```
+
+# Between - for range
+
+```sql
+SELECT * FROM students WHERE enrollment_date BETWEEN '2023-02-01' AND '2023-02-06';
+```
+
+# LIKE , ILIKE - buscar por patrones de caracteres -1:38:06
+
+```sql
+SELECT * FROM scores WHERE score_genre LIKE '%J%';
+
+SELECT * FROM scores WHERE score_genre LIKE 'J%'
+
+SELECT * FROM scores WHERE score_genre LIKE 'J___%'
+```
+
+score_id | composer | work_title | score_genre | score_grade
+----------+----------+-------------+-------------+-------------
+5 | Gershwin | Summertime | Jazz |
+6 | Coltrane | Giant Steps | Jazz |
+
+----- 1:43:00 -----
