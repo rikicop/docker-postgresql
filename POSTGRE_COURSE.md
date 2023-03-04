@@ -315,3 +315,5 @@ docker cp estupie.csv server-postgy-1:/tmp
 COPY stud_pieza(nomb_stud, pieza, objetivos, fragmentos, observaciones)
 FROM '/path/to/csv/file.csv' DELIMITER ',' CSV HEADER;
 ```
+
+# MAX - 1:56:49
