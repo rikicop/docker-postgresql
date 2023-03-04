@@ -237,3 +237,81 @@ score_id | composer | work_title | score_genre | score_grade
 6 | Coltrane | Giant Steps | Jazz |
 
 ----- 1:43:00 -----
+
+## ILIKE - Para no discriminar entre mayús o minús
+
+```sql
+SELECT * FROM students WHERE stu_name ILIKE '%lucia%';
+```
+
+## UPDATE WHERE IS NULL
+
+```sql
+UPDATE students SET polif='n' WHERE polif IS NULL;
+```
+
+# GROUP BY
+
+```sql
+SELECT polif, COUNT(*) FROM students GROUP BY polif;
+```
+
+polif | count
+-------+-------
+n | 9
+s | 4
+(2 rows)
+
+# HAVING - Is a filter
+
+```sql
+SELECT polif FROM students GROUP BY polif HAVING COUNT(*) >5 ORDER BY polif;
+```
+
+```sql
+SELECT polif,COUNT(*) FROM students GROUP BY polif HAVING COUNT(*) >5 ORDER BY polif;
+
+ polif | count
+-------+-------
+ n     |     9
+```
+
+## For more info, check for "aggregate functions" in postgres docs(math, statistics...)
+
+# CREATE table and insert massive data with mockaroo.com -yt - 1:53:33 - it generates an .sql
+
+# Creación de Tabla Estudiante-Pieza
+
+```sql
+CREATE TABLE stud_pieza(
+  id SERIAL PRIMARY KEY,
+  nomb_stud TEXT NOT NULL,
+  pieza TEXT NOT NULL,
+  objetivos TEXT,
+  fragmentos TEXT,
+  observaciones TEXT
+);
+```
+
+# IMPORT .Csv to postgresql table docker
+
+## Consideraciones
+
+1. El .csv debe tener un Header Ex:
+   estudiante,pieza,objetivo,fragmento,observaciones
+   Esther,"Etude N1, Gamme de Sol Majeur,Debutante, Hervé y Pouillard",Simultaneidad,1-8,"Trabajó simunltaneidad del compás 7, corrigiendo las notas y el buen uso de la digitación."
+
+2. Borrar espacios en blanco despues pues de los registros es decir hacer backspace hasta llegar al registro
+
+3. Tener en cuenta el utf-8, corrí un UtfConverter.js para corregir.
+
+Si el registro es largo y tiene ,: "Clair Martin, Debutante, Herv y Pouillard",Simultaneidad,1-4,"
+
+```bash
+docker cp estupie.csv server-postgy-1:/tmp
+```
+
+```sql
+COPY stud_pieza(nomb_stud, pieza, objetivos, fragmentos, observaciones)
+FROM '/path/to/csv/file.csv' DELIMITER ',' CSV HEADER;
+```
