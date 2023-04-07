@@ -22,6 +22,10 @@ docker exec -it server-postgy-1 psql -U ricardo -W perntodo
 or
 
 docker exec -it server-postgy-1 psql -U ricardo -W musical_ethnography
+
+or
+
+docker exec -it server-postgy-1 psql -U ricardo -W firmas
 ```
 
 password: 1234
